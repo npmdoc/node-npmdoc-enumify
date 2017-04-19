@@ -79,6 +79,34 @@
 
         </li>
 
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan"></span>enumify</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.enumify.enumify">module enumify.enumify</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.enumify.enumify.Enum">
+            function <span class="apidocSignatureSpan">enumify.enumify.</span>Enum
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.enumify.enumify.copyProperties">
+            function <span class="apidocSignatureSpan">enumify.enumify.</span>copyProperties
+            <span class="apidocSignatureSpan">(target, source)</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
@@ -117,6 +145,84 @@
     <h2>
         <a href="#apidoc.element.enumify.copyProperties" id="apidoc.element.enumify.copyProperties">
         function <span class="apidocSignatureSpan">enumify.</span>copyProperties
+        <span class="apidocSignatureSpan">(target, source)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function copyProperties(target, source) {
+    // Ideally, we’d use Reflect.ownKeys() here,
+    // but I don’t want to depend on a polyfill
+    var _iteratorNormalCompletion3 = true;
+    var _didIteratorError3 = false;
+    var _iteratorError3 = undefined;
+
+    try {
+        for (var _iterator3 = Object.getOwnPropertyNames(source)[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3
+ = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+            var key = _step3.value;
+
+            var desc = Object.getOwnPropertyDescriptor(source, key);
+            Object.defineProperty(target, key, desc);
+        }
+    } catch (err) {
+        _didIteratorError3 = true;
+        _iteratorError3 = err;
+    } finally {
+        try {
+            if (!_iteratorNormalCompletion3 &#x26;&#x26; _iterator3.return) {
+                _iterator3.return();
+            }
+        } finally {
+            if (_didIteratorError3) {
+                throw _iteratorError3;
+            }
+        }
+    }
+
+    return target;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.enumify.enumify" id="apidoc.module.enumify.enumify">module enumify.enumify</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.enumify.enumify.Enum" id="apidoc.element.enumify.enumify.Enum">
+        function <span class="apidocSignatureSpan">enumify.enumify.</span>Enum
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Enum() {
+    var instanceProperties = arguments.length &#x3c;= 0 || arguments[0] === undefined ? undefined : arguments[0];
+
+    _classCallCheck(this, Enum);
+
+    // new.target would be better than this.constructor,
+    // but isn’t supported by Babel
+    if ({}.hasOwnProperty.call(this.constructor, INITIALIZED)) {
+        throw new Error(&#x27;Enum classes can’t be instantiated&#x27;);
+    }
+    if ((typeof instanceProperties === &#x27;undefined&#x27; ? &#x27;undefined&#x27; : _typeof(instanceProperties)) === &#x27;object&#x27; &#x26;&#x26; instanceProperties
+ !== null) {
+        copyProperties(this, instanceProperties);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.enumify.enumify.copyProperties" id="apidoc.element.enumify.enumify.copyProperties">
+        function <span class="apidocSignatureSpan">enumify.enumify.</span>copyProperties
         <span class="apidocSignatureSpan">(target, source)</span>
         </a>
     </h2>
