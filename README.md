@@ -1,9 +1,14 @@
-# api documentation for  [enumify (v1.0.4)](https://github.com/rauschma/enumify#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-enumify.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-enumify) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-enumify.svg)](https://travis-ci.org/npmdoc/node-npmdoc-enumify)
+# npmdoc-enumify
+
+#### api documentation for  [enumify (v1.0.4)](https://github.com/rauschma/enumify#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-enumify.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-enumify) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-enumify.svg)](https://travis-ci.org/npmdoc/node-npmdoc-enumify)
+
 #### A JavaScript library for enums. To be used by transpiled ES6 (e.g. via Babel).
 
-[![NPM](https://nodei.co/npm/enumify.png?downloads=true)](https://www.npmjs.com/package/enumify)
+[![NPM](https://nodei.co/npm/enumify.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/enumify)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-enumify/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-enumify_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-enumify/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-enumify/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-enumify/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-enumify/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-enumify/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-enumify/build/screenCapture.npmPackageListing.svg)
 
@@ -47,13 +52,11 @@
     "main": "./lib/enumify.js",
     "maintainers": [
         {
-            "name": "rauschma",
-            "email": "axel@rauschma.de"
+            "name": "rauschma"
         }
     ],
     "name": "enumify",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/rauschma/enumify.git"
@@ -68,83 +71,6 @@
     },
     "version": "1.0.4"
 }
-```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module enumify](#apidoc.module.enumify)
-1.  [function <span class="apidocSignatureSpan">enumify.</span>Enum ()](#apidoc.element.enumify.Enum)
-1.  [function <span class="apidocSignatureSpan">enumify.</span>copyProperties (target, source)](#apidoc.element.enumify.copyProperties)
-
-
-
-# <a name="apidoc.module.enumify"></a>[module enumify](#apidoc.module.enumify)
-
-#### <a name="apidoc.element.enumify.Enum"></a>[function <span class="apidocSignatureSpan">enumify.</span>Enum ()](#apidoc.element.enumify.Enum)
-- description and source-code
-```javascript
-function Enum() {
-    var instanceProperties = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
-
-    _classCallCheck(this, Enum);
-
-    // new.target would be better than this.constructor,
-    // but isn’t supported by Babel
-    if ({}.hasOwnProperty.call(this.constructor, INITIALIZED)) {
-        throw new Error('Enum classes can’t be instantiated');
-    }
-    if ((typeof instanceProperties === 'undefined' ? 'undefined' : _typeof(instanceProperties)) === 'object' && instanceProperties
- !== null) {
-        copyProperties(this, instanceProperties);
-    }
-}
-```
-- example usage
-```shell
-n/a
-```
-
-#### <a name="apidoc.element.enumify.copyProperties"></a>[function <span class="apidocSignatureSpan">enumify.</span>copyProperties (target, source)](#apidoc.element.enumify.copyProperties)
-- description and source-code
-```javascript
-function copyProperties(target, source) {
-    // Ideally, we’d use Reflect.ownKeys() here,
-    // but I don’t want to depend on a polyfill
-    var _iteratorNormalCompletion3 = true;
-    var _didIteratorError3 = false;
-    var _iteratorError3 = undefined;
-
-    try {
-        for (var _iterator3 = Object.getOwnPropertyNames(source)[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3
- = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-            var key = _step3.value;
-
-            var desc = Object.getOwnPropertyDescriptor(source, key);
-            Object.defineProperty(target, key, desc);
-        }
-    } catch (err) {
-        _didIteratorError3 = true;
-        _iteratorError3 = err;
-    } finally {
-        try {
-            if (!_iteratorNormalCompletion3 && _iterator3.return) {
-                _iterator3.return();
-            }
-        } finally {
-            if (_didIteratorError3) {
-                throw _iteratorError3;
-            }
-        }
-    }
-
-    return target;
-}
-```
-- example usage
-```shell
-n/a
 ```
 
 
